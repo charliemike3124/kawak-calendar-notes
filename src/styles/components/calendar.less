@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .calendar {
+    width: 800px;
+    height: 600px;
+    @media only screen and (max-width: 800px) {
+      width: 90%;
+    }
+
+    .day-box {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      &:hover {
+        background-color: rgba(233, 233, 233, 0.404);
+      }
+    }
+  }
+
+  .holiday {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+  }
+}

@@ -1,2 +1,2 @@
-import example from "./exampleModule";
-export { example };
+import calendar from "./calendar";
+export { calendar };

@@ -1,22 +1,43 @@
 <template>
-    <div class="grey lighten-5"></div>
+  <div class="grey lighten-5">
+    <HomeHeader
+      :currentView="selectedView"
+      @showCalendarView="() => (selectedView = 'Calendar')"
+      @showNoteListView="() => (selectedView = 'NotesList')"
+    />
+    <KeepAlive>
+      <component :is="selectedView"></component>
+    </KeepAlive>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import { Calendar, HomeHeader, NotesList } from "../components";
+import { mapActions } from "vuex";
 
 export default {
-    name: "Home",
+  name: "Home",
 
-    components: {},
+  components: {
+    Calendar,
+    HomeHeader,
+    NotesList,
+  },
 
-    computed: {},
+  data() {
+    return {
+      selectedView: "Calendar",
+    };
+  },
 
-    data: () => ({}),
+  methods: {
+    ...mapActions("calendar", ["GetEventsFromLocalStorage", "GetAvailableCountries"]),
+  },
 
-    methods: {},
-
-    mounted() {},
+  mounted() {
+    this.GetEventsFromLocalStorage();
+    this.GetAvailableCountries();
+  },
 };
 </script>
 <style lang="less">
