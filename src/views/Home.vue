@@ -1,6 +1,7 @@
 <template>
   <div class="grey lighten-5">
     <HomeHeader
+      class="mb-4"
       :currentView="selectedView"
       @showCalendarView="() => (selectedView = 'Calendar')"
       @showNoteListView="() => (selectedView = 'NotesList')"
