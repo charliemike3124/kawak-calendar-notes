@@ -12,7 +12,7 @@
           ></v-select>
         </div>
       </v-col>
-      <v-col>
+      <v-col cols="6">
         <v-btn icon class="ma-2" @click="changeMonth(false)">
           <v-icon>mdi-chevron-left</v-icon>
         </v-btn>

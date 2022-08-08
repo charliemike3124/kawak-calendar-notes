@@ -32,8 +32,8 @@ const actions = {
   },
 
   GetEventsFromLocalStorage({ commit }) {
-    const data = localStorage.getItem(STORAGE_KEYS.events);
-    let list = data != "undefined" || !data ? JSON.parse(data) : [];
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEYS.events));
+    let list = !data ? [] : data;
     if (list.length) {
       list = list.map((event) => {
         return {
